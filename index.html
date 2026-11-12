@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tu Nombre · Compositor</title>
+  <meta name="description" content="Portfolio de composición musical: proyectos, set up y workflow." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#sobre-mi" id="brand">Tu Nombre</a>
+    <nav class="tabs" id="tabs" role="tablist" aria-label="Secciones">
+      <button role="tab" data-tab="sobre-mi">Sobre mí</button>
+      <button role="tab" data-tab="portfolio">Portfolio</button>
+      <button role="tab" data-tab="setup">My set up</button>
+      <button role="tab" data-tab="workflow">Mi workflow</button>
+      <button role="tab" data-tab="others">Others</button>
+    </nav>
+  </header>
+
+  <main id="view" tabindex="-1"></main>
+
+  <footer class="site-footer">
+    <span id="footer-text"></span>
+  </footer>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
