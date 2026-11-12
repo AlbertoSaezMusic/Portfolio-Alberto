@@ -205,6 +205,22 @@ section > .video { margin-top: 2rem; }
 .site-footer { text-align: center; color: var(--muted); font: italic 1.05rem var(--body); padding: 2rem 1rem; border-top: 3px double var(--line); }
 
 /* ---------- Pantallas medianas y pequeñas: menú desplegable ---------- */
+/* lista de juegos */
+.games { margin-top: 3.2rem; }
+.gamelist { list-style: none; counter-reset: game; margin: 1.6rem 0 0; padding: 0; display: grid; gap: 1.5rem; }
+.gamelist li { counter-increment: game; position: relative; padding-left: 3rem; }
+.gamelist li::before {
+  content: counter(game) "."; position: absolute; left: 0; top: -.05rem;
+  font: 700 1.5rem var(--display); color: var(--gold); width: 2.4rem; text-align: right;
+}
+.gamelist p { margin: 0; }
+.g-line { font-size: 1.25rem; color: var(--text); }
+.g-line strong { font: 600 1.15rem var(--display); letter-spacing: .05em; color: var(--text); }
+.g-years { color: var(--muted); font-style: italic; }
+.g-meta { color: var(--soft); font-size: 1.08rem; margin-top: .15rem; }
+.steam-wrap { margin-top: .9rem; max-width: 646px; }
+.steam { display: block; width: 100%; max-width: 646px; height: 190px; border: 0; border-radius: 4px; }
+
 @media (max-width: 960px) {
   .menu-toggle { display: inline-flex; }
   .tabs {
@@ -239,6 +255,9 @@ section > .video { margin-top: 2rem; }
   .specs .aside p { grid-column: 1; }
   .phase, .panel { padding: 1.2rem 1.2rem 1.4rem; }
   .steps li { padding-left: 1.4rem; }
+  .gamelist li { padding-left: 2.4rem; }
+  .gamelist li::before { width: 1.9rem; font-size: 1.3rem; }
+  .steam { height: 190px; }
   .video .play span { width: 56px; height: 56px; }
   #toast { width: calc(100% - 2rem); text-align: center; bottom: 1rem; }
 }

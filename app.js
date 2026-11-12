@@ -82,6 +82,33 @@
     catch { toast(`Discord: ${v}`); }
   }
 
+  // Tarjeta incrustada de Steam a partir de un enlace store.steampowered.com/app/ID/...
+  function steamEmbed(url, name) {
+    const m = String(url || "").match(/store\.steampowered\.com\/app\/(\d+)/);
+    if (!m) return "";
+    return `<iframe class="steam" src="https://store.steampowered.com/widget/${m[1]}/" title="${esc(name)} on Steam" loading="lazy" frameborder="0" width="646" height="190"></iframe>`;
+  }
+
+  function gamesList(g) {
+    if (!g || !g.items || !g.items.length) return "";
+    return `
+      <section class="games">
+        <h2>${esc(g.title || "Games I've worked for")}</h2>
+        <ol class="gamelist">
+          ${g.items
+            .map((i) => {
+              const bits = [i.status, i.music, i.genre].filter(Boolean).map(esc).join(" · ");
+              return `<li>
+                <p class="g-line"><strong>${esc(i.name)}</strong> <span class="g-years">(${esc(i.years)})</span></p>
+                <p class="g-meta">${bits}</p>
+                ${i.steam ? `<div class="steam-wrap">${steamEmbed(i.steam, i.name)}</div>` : ""}
+              </li>`;
+            })
+            .join("")}
+        </ol>
+      </section>`;
+  }
+
   /* ---------- secciones ---------- */
   const sections = {
     about() {
@@ -125,7 +152,8 @@
                   .join("")}</div>`
               : `<p class="lead soon">${esc(S.portfolioEmpty || "Coming soon")}</p>`
           }
-        </section>`;
+        </section>
+        ${gamesList(S.games)}`;
     },
 
     setup() {

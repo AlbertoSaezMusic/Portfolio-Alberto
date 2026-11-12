@@ -17,7 +17,7 @@ window.SITE = {
     paragraphs: [
       "Hi there! I'm Alberto, a composer based in Valencia, Spain, and a lifelong gamer.",
       "I've been writing music all my life, and for the last few years I've focused on music for videogames.",
-      "My influences come from the fantasy worlds I grew up in: Skyrim, Elden Ring, Golden Sun, Ghost of Tsushima and The Witcher, plus Game of Thrones and The Lord of the Rings.",
+      "My influences come from the fantasy worlds I grew up in: Skyrim, Elden Ring, Golden Sun, Ghost of Tsushima and The Witcher, plus Game of Thrones, The Lord of the Rings...",
       "My approach is simple: the music serves the developer's vision. I want to take the player's experience a step further by building on what the game already shows, and giving it a frame that makes the whole experience stick. My job isn't to write memorable music for its own sake. It's to bring to life what the developer hears in their head when they imagine the game."
     ],
     video: "", // opcional: un vídeo de presentación
@@ -31,10 +31,25 @@ window.SITE = {
 
   /* ---------- PORTFOLIO ---------- */
   portfolio: [
-    { title: "Fantasy music reel", tag: "Reel", year: "", description: "", video: "https://youtu.be/FkpJXVGJLyg" },
-    { title: "Dark fantasy music reel", tag: "Reel", year: "", description: "", video: "https://youtu.be/GeT0c5qNSCM" }
+    { title: "Fantasy music reel", tag: "Reel", year: "", description: "", video: "https://youtu.be/GeT0c5qNSCM" },
+    { title: "Dark fantasy music reel", tag: "Reel", year: "", description: "", video: "https://youtu.be/FkpJXVGJLyg" }
   ],
   portfolioEmpty: "Coming soon", // se muestra mientras la lista de arriba esté vacía
+
+  /* ---------- JUEGOS EN LOS QUE HE TRABAJADO (lista numerada, aparece en Portfolio) ----------
+     Cada juego: name, years, status, music (estilo, opcional), genre.
+     "steam" (opcional): enlace a la página de Steam -> añade un botón y la tarjeta incrustada. */
+  games: {
+    title: "Games I've worked for",
+    items: [
+      { name: "Empress Cixi", years: "2025–Present", status: "In development", music: "Chinese / Orchestral", genre: "Narrative RPG" },
+      { name: "Alpha Instinct Royale", years: "2025–Present", status: "In development", music: "Fantasy / Orchestral", genre: "AutoBattler" },
+      { name: "Runic Tower", years: "2025–Present", status: "In development · Demo out", music: "Fantasy / Dark fantasy", genre: "Tower Defense RPG", steam: "https://store.steampowered.com/app/3949420/Runic_Tower/" },
+      { name: "Yoshimoto, Wrath of the Rising Warrior", years: "2025–Present", status: "In development", music: "Japanese / Orchestral", genre: "Action RPG" },
+      { name: "Unmade", years: "2025–Present", status: "In development", music: "", genre: "Survival" },
+      { name: "Fableweather", years: "2026–Present", status: "In development", music: "", genre: "Fantasy RPG" }
+    ]
+  },
 
   /* ---------- MY SET UP ---------- */
   setup: {
