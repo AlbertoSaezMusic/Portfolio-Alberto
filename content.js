@@ -16,8 +16,8 @@ window.SITE = {
     photo: "", // ej: "img/yo.jpg" (déjalo vacío para no mostrar foto)
     paragraphs: [
       "Hi there! I'm Alberto, a composer based in Valencia, Spain, and a lifelong gamer.",
-      "I've been writing music all my life, and for the last few years I've focused on music for videogames.",
-      "My influences come from the fantasy worlds I grew up in: Skyrim, Elden Ring, Golden Sun, Ghost of Tsushima and The Witcher, plus Game of Thrones and The Lord of the Rings.",
+      "I've been writing music all my life, and for the last few years I've focused on music for videogames, by means of virtual instruments.",
+      "My influences come from the fantasy worlds Skyrim, Elden Ring, Golden Sun, Ghost of Tsushima and The Witcher, Game of Thrones and The Lord of the Rings... and the list goes on and on.",
       "My approach is simple: the music serves the developer's vision. I want to take the player's experience a step further by building on what the game already shows, and giving it a frame that makes the whole experience stick. My job isn't to write memorable music for its own sake. It's to bring to life what the developer hears in their head when they imagine the game."
     ],
     video: "", // opcional: un vídeo de presentación
