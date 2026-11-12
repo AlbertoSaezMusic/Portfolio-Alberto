@@ -30,7 +30,10 @@ window.SITE = {
   },
 
   /* ---------- PORTFOLIO ---------- */
-  portfolio: [],
+  portfolio: [
+    { title: "Fantasy music reel", tag: "Reel", year: "", description: "", video: "https://youtu.be/FkpJXVGJLyg" },
+    { title: "Dark fantasy music reel", tag: "Reel", year: "", description: "", video: "https://youtu.be/GeT0c5qNSCM" }
+  ],
   portfolioEmpty: "Coming soon", // se muestra mientras la lista de arriba esté vacía
 
   /* ---------- MY SET UP ---------- */

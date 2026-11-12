@@ -189,6 +189,7 @@
   /* ---------- navegación ---------- */
   function render() {
     const id = TAB_IDS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "about";
+    setMenu(false);
     view.innerHTML = sections[id]();
     view.querySelectorAll("h2").forEach((h) => h.insertAdjacentHTML("afterend", '<div class="divider"><i></i></div>'));
     view.classList.remove("fade");
@@ -203,6 +204,17 @@
   }
 
   tabs.forEach((b) => b.addEventListener("click", () => { location.hash = b.dataset.tab; }));
+
+  // menú desplegable en móvil
+  const header = document.querySelector(".site-header");
+  const menuBtn = document.getElementById("menu-toggle");
+  function setMenu(open) {
+    header.classList.toggle("open", open);
+    menuBtn.setAttribute("aria-expanded", String(open));
+  }
+  menuBtn.addEventListener("click", () => setMenu(!header.classList.contains("open")));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
+  document.addEventListener("click", (e) => { if (!header.contains(e.target)) setMenu(false); });
   window.addEventListener("hashchange", render);
 
   // Cargar el reproductor al pulsar la miniatura
