@@ -55,7 +55,7 @@
       return `
         <section class="about">
           <div class="about-text">
-            <p class="eyebrow">Compositor</p>
+            ${a.eyebrow ? `<p class="eyebrow">${esc(a.eyebrow)}</p>` : ""}
             <h1>${esc(S.name)}</h1>
             <p class="lead">${esc(S.tagline)}</p>
             ${a.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("")}
@@ -174,7 +174,7 @@
     box.appendChild(f);
   });
 
-  document.title = `${S.name} · Compositor`;
+  document.title = `${S.name} · Composer`;
   document.getElementById("brand").textContent = S.name;
   document.getElementById("footer-text").textContent = S.footer;
   render();

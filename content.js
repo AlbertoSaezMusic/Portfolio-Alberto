@@ -6,16 +6,19 @@
    ========================================================== */
 
 window.SITE = {
-  name: "Tu Nombre",
-  tagline: "Compositor · música para imagen, juegos y proyectos propios",
-  footer: "© 2026 Tu Nombre",
+  name: "Alberto Sáez Music",
+  tagline: "Composer · Music for videogames, RPGs, D&D campaigns and fantasy worlds",
+  footer: "© 2026 Alberto Sáez Music",
 
   /* ---------- SOBRE MÍ ---------- */
   about: {
+    eyebrow: "Composer of music for videogames", // texto pequeño sobre el nombre
     photo: "", // ej: "img/yo.jpg" (déjalo vacío para no mostrar foto)
     paragraphs: [
-      "Soy compositor. Escribe aquí quién eres, cómo empezaste y qué tipo de música haces.",
-      "Cuenta qué te inspira, con quién has trabajado y qué buscas ahora: encargos, colaboraciones, etc."
+      "Hi there! I'm Alberto, a composer based in Valencia, Spain, and a lifelong gamer.",
+      "I've been writing music all my life, and for the last few years I've focused on music for videogames.",
+      "My influences come from the fantasy worlds I grew up in: Skyrim, Elden Ring, Golden Sun, Ghost of Tsushima and The Witcher, plus Game of Thrones and The Lord of the Rings.",
+      "My approach is simple: the music serves the developer's vision. I want to take the player's experience a step further by building on what the game already shows, and giving it a frame that makes the whole experience stick. My job isn't to write memorable music for its own sake. It's to bring to life what the developer hears in their head when they imagine the game."
     ],
     video: "", // opcional: un vídeo de presentación
     links: [
