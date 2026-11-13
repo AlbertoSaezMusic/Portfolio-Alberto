@@ -273,6 +273,9 @@ h3 { font-size: 1.15rem; letter-spacing: .05em; }
 .panel h3 { color: var(--gold); font-size: 1.2rem; letter-spacing: .1em; }
 .panel p { margin: 0; color: var(--soft); max-width: 68ch; }
 .panel .links { margin-top: 1.4rem; }
+.embeds { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 1.6rem; margin-top: 1.6rem; }
+.embeds figure { margin: 0; }
+.embeds figcaption { color: var(--gold); font: 600 .85rem var(--display); letter-spacing: .14em; text-transform: uppercase; margin-bottom: .6rem; }
 .lead.soon { margin-top: 1rem; }
 
 .site-footer { text-align: center; color: var(--muted); font: italic 1.05rem var(--body); padding: 2rem 1rem; border-top: 1px solid var(--line); }

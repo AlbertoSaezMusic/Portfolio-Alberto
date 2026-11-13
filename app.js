@@ -273,6 +273,8 @@
                 <h3>${esc(b.title)}</h3>
                 <p>${esc(b.text)}</p>
                 ${b.links && b.links.length ? `<div class="links">${b.links.map(linkBtn).join("")}</div>` : ""}
+                ${b.embeds && b.embeds.length ? `<div class="embeds">${b.embeds.map((e) => `<figure>${e.title ? `<figcaption>${esc(e.title)}</figcaption>` : ""}${spotifyEmbed(e.url, e.title || "Spotify")}</figure>`).join("")}</div>` : ""}
+                ${b.badges && b.badges.length ? `<div class="badges">${b.badges.map(badgeBtn).join("")}</div>` : ""}
               </article>`
               )
               .join("")}

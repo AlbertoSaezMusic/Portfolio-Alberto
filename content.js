@@ -40,7 +40,8 @@ window.SITE = {
   portfolio: [
     { title: "Fantasy music reel", tag: "Reel", year: "", description: "Tavern, ambience, combat and main theme: the staples of RPG and fantasy games.", video: "https://youtu.be/GeT0c5qNSCM" },
     { title: "Dark fantasy music reel", tag: "Reel", year: "", description: "Dark fantasy for Souls-like games: boss music in phases, ambience, cathedral pieces and melancholic themes.", video: "https://youtu.be/FkpJXVGJLyg" },
-    { title: "Winter Reel RPG music", tag: "Reel", year: "", description: "From more melodic themes to tension and ritual pieces, with Nordic and Viking influences.", video: "https://youtu.be/eAbFzek1qzg" }
+    { title: "Winter Reel RPG music", tag: "Reel", year: "", description: "From more melodic themes to tension and ritual pieces, with Nordic and Viking influences.", video: "https://youtu.be/eAbFzek1qzg" },
+    { title: "Ethnic Folk Orchestral Reel", tag: "Reel", year: "", description: "Ethnic and folk instruments blended with orchestral writing.", video: "https://youtu.be/6d-F4CULG8w" },
     // Para un reproductor de Spotify, usa "spotify" en vez de "video" (vale canción, álbum, playlist o artista).
     // Ejemplo, quita las // para activarlo:
     // { title: "Alberto Sáez on Spotify", tag: "Spotify", year: "", description: "", spotify: "https://open.spotify.com/artist/3YNlkAYshOwGIeb6OJhXGC" }
@@ -130,11 +131,22 @@ window.SITE = {
       {
         title: "My channel",
         text: "When I'm not composing for others, I keep composing out of passion for my own channel. It's focused on music for D&D sessions and videogames. I do it purely for the love of it, and I like sharing it online with anyone who might enjoy it.",
-        links: [
-          { label: "YouTube", type: "play", icon: "img/youtube.png", url: "https://www.youtube.com/@alberthormusicyt" },
-          { label: "Spotify", type: "music", icon: "img/spotify.png", url: "https://open.spotify.com/artist/3YNlkAYshOwGIeb6OJhXGC" }
+        embeds: [
+          { title: "", url: "https://open.spotify.com/playlist/5epBsql4YJGOV7UjGdF9d8" }
+        ],
+        badges: [
+          { label: "YouTube", type: "play", icon: "img/youtube.png", url: "https://www.youtube.com/@alberthormusicyt" }
         ]
       }
+      // Listas de Spotify por separado: quita las // y pon tus enlaces (canción, álbum, playlist o artista):
+      // ,{
+      //   title: "My playlists",
+      //   text: "Music for D&D sessions and videogames, sorted by style.",
+      //   embeds: [
+      //     { title: "Western", url: "https://open.spotify.com/playlist/AQUI_EL_ID" },
+      //     { title: "Japanese", url: "https://open.spotify.com/playlist/AQUI_EL_ID" }
+      //   ]
+      // }
     ]
   }
 };
