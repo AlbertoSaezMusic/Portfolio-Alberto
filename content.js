@@ -40,9 +40,10 @@ window.SITE = {
   portfolio: [
     { title: "Fantasy music reel", tag: "Reel", year: "", description: "Tavern, ambience, combat and main theme: the staples of RPG and fantasy games.", video: "https://youtu.be/GeT0c5qNSCM" },
     { title: "Dark fantasy music reel", tag: "Reel", year: "", description: "Dark fantasy for Souls-like games: boss music in phases, ambience, cathedral pieces and melancholic themes.", video: "https://youtu.be/FkpJXVGJLyg" },
-    { title: "Winter Reel RPG music", tag: "Reel", year: "", description: "From more melodic themes to tension and ritual pieces, with Nordic and Viking influences.", video: "https://youtu.be/eAbFzek1qzg" },
-    // Para un reproductor de Spotify, usa "spotify" en vez de "video" (vale canción, álbum, playlist o artista):
-    { title: "Alberto Sáez on Spotify", tag: "Spotify", year: "", description: "", spotify: "https://open.spotify.com/artist/3YNlkAYshOwGIeb6OJhXGC" }
+    { title: "Winter Reel RPG music", tag: "Reel", year: "", description: "From more melodic themes to tension and ritual pieces, with Nordic and Viking influences.", video: "https://youtu.be/eAbFzek1qzg" }
+    // Para un reproductor de Spotify, usa "spotify" en vez de "video" (vale canción, álbum, playlist o artista).
+    // Ejemplo, quita las // para activarlo:
+    // { title: "Alberto Sáez on Spotify", tag: "Spotify", year: "", description: "", spotify: "https://open.spotify.com/artist/3YNlkAYshOwGIeb6OJhXGC" }
   ],
   portfolioEmpty: "Coming soon", // se muestra mientras la lista de arriba esté vacía
 
