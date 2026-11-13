@@ -31,6 +31,21 @@ body::after {
   content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--noise);
 }
 a { color: inherit; }
+
+/* fondo difuminado con tu foto: solo en Portfolio y Others */
+body::before {
+  content: ""; position: fixed; inset: -24px; z-index: -2; opacity: 0; pointer-events: none;
+  background: url("fondo.jpg") 62% center / cover no-repeat;
+  filter: blur(4px) saturate(.9);
+  transition: opacity .4s;
+}
+body[data-page="portfolio"]::before, body[data-page="others"]::before { opacity: 1; }
+body[data-page="portfolio"]::after, body[data-page="others"]::after {
+  background:
+    linear-gradient(90deg, rgba(14, 10, 8, .84) 0%, rgba(14, 10, 8, .72) 60%, rgba(14, 10, 8, .6) 100%),
+    var(--noise);
+}
+body[data-page="portfolio"] main, body[data-page="others"] main { text-shadow: 0 1px 8px rgba(0, 0, 0, .55); }
 .wrap { width: min(1120px, 100%); margin: 0 auto; padding-left: clamp(1.1rem, 4vw, 3rem); padding-right: clamp(1.1rem, 4vw, 3rem); }
 
 /* cabecera + pestañas */
@@ -139,6 +154,18 @@ h3 { font-size: 1.15rem; letter-spacing: .05em; }
 .linkbtn .ico { width: 20px; height: 20px; flex: none; }
 .linkbtn .ico.logo { width: 24px; height: 24px; object-fit: contain; }
 
+/* fila de iconos (logos) */
+.badges { display: flex; flex-wrap: wrap; align-items: center; gap: 1.4rem; margin-top: 1.8rem; }
+.badge {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 52px; height: 56px;
+  background: none; border: 0; padding: 0; cursor: pointer; color: var(--gold);
+  transition: transform .2s, filter .2s;
+}
+.badge:hover { transform: translateY(-4px); filter: brightness(1.12) drop-shadow(0 6px 10px rgba(0, 0, 0, .5)); }
+.badge:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 6px; }
+.badge .ico { width: 30px; height: 30px; }
+.badge .ico.logo { width: auto; height: 46px; max-width: 74px; object-fit: contain; }
+
 /* aviso "copiado" */
 #toast {
   position: fixed; left: 50%; bottom: 2rem; transform: translate(-50%, 20px); opacity: 0; pointer-events: none;
@@ -205,6 +232,8 @@ h3 { font-size: 1.15rem; letter-spacing: .05em; }
 .g-line strong { font: 600 1.2rem var(--display); letter-spacing: .05em; color: var(--text); }
 .g-years { color: var(--muted); font-style: italic; }
 .g-meta { color: var(--soft); font-size: 1.08rem; margin-top: .2rem; }
+.spotify { display: block; width: 100%; border: 0; border-radius: 12px; }
+.card .spotify { border-radius: 0; }
 .steam-wrap { margin-top: 1rem; max-width: 646px; }
 .steam { display: block; width: 100%; max-width: 646px; height: 190px; border: 0; border-radius: 4px; }
 
@@ -229,6 +258,7 @@ h3 { font-size: 1.15rem; letter-spacing: .05em; }
 }
 .phase .eyebrow { margin: 0 0 .5rem; }
 .phase p:last-child { margin: 0; color: var(--soft); max-width: 70ch; }
+.phase.daily { margin: 2.6rem 0 0; }
 .subhead { margin: 0 0 .4rem; font-size: 1.5rem; letter-spacing: .08em; color: var(--gold); }
 .track-intro { margin: 0 0 1.6rem; color: var(--soft); }
 
@@ -265,6 +295,10 @@ h3 { font-size: 1.15rem; letter-spacing: .05em; }
 /* ---------- Móvil ---------- */
 @media (max-width: 720px) {
   body { font-size: 1.12rem; line-height: 1.55; }
+  body::before { background-position: 72% center; }
+  body[data-page="portfolio"]::after, body[data-page="others"]::after {
+    background: linear-gradient(rgba(14, 10, 8, .62), rgba(14, 10, 8, .74)), var(--noise);
+  }
   .brand { font-size: 1rem; }
   .eyebrow { font-size: .8rem; letter-spacing: .16em; }
   .lead { font-size: 1.25rem; }

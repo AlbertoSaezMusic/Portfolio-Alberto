@@ -46,6 +46,14 @@
       </div>`;
   }
 
+  // Reproductor incrustado de Spotify a partir de cualquier enlace open.spotify.com (canción, álbum, playlist, artista, podcast)
+  function spotifyEmbed(link, title = "Spotify") {
+    const m = String(link || "").match(/open\.spotify\.com\/(?:intl-[a-z]{2}\/)?(track|album|playlist|artist|episode|show)\/([A-Za-z0-9]+)/);
+    if (!m) return link ? `<p class="muted">Invalid Spotify link: ${esc(link)}</p>` : "";
+    const h = m[1] === "track" || m[1] === "episode" ? 152 : 352;
+    return `<iframe class="spotify" src="https://open.spotify.com/embed/${m[1]}/${m[2]}?theme=0" title="${esc(title)}" loading="lazy" width="100%" height="${h}" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`;
+  }
+
   const intro = (t) => (t ? `<p class="lead">${esc(t)}</p>` : "");
 
   /* ---------- botones de enlaces con icono ---------- */
@@ -61,15 +69,24 @@
   // l.icon = "img/gmail" -> busca img/gmail.svg, .png, .webp o .jpg (el primero que exista).
   // Si no existe ninguno, usa el icono genérico de l.type (mail, chat, play, music, link).
   const ICON_EXT = [".svg", ".png", ".webp", ".jpg"];
-  function linkBtn(l) {
-    let icon;
+  function iconHtml(l) {
     if (l.icon) {
       const hasExt = /\.(svg|png|webp|jpe?g)$/i.test(l.icon);
       const first = hasExt ? l.icon : l.icon + ICON_EXT[0];
-      icon = `<img class="ico logo" src="${esc(first)}" alt="" ${hasExt ? "" : `data-base="${esc(l.icon)}" data-n="0"`} data-type="${esc(l.type || "link")}" />`;
-    } else {
-      icon = svgIcon(l.type);
+      return `<img class="ico logo" src="${esc(first)}" alt="" ${hasExt ? "" : `data-base="${esc(l.icon)}" data-n="0"`} data-type="${esc(l.type || "link")}" />`;
     }
+    return svgIcon(l.type);
+  }
+  // Fila de iconos (solo logo, sin texto) para el bloque de contacto
+  function badgeBtn(l) {
+    if (l.copy && !l.url) {
+      return `<button type="button" class="badge" data-copy="${esc(l.copy)}" aria-label="${esc(l.label)}" title="${esc(l.label)}">${iconHtml(l)}</button>`;
+    }
+    const ext = /^https?:/.test(l.url) ? ' target="_blank" rel="noopener"' : "";
+    return `<a class="badge" href="${esc(l.url)}"${ext} aria-label="${esc(l.label)}" title="${esc(l.label)}">${iconHtml(l)}</a>`;
+  }
+  function linkBtn(l) {
+    const icon = iconHtml(l);
     const inner = `${icon}<span>${esc(l.label)}</span>`;
     if (l.copy && !l.url) {
       return `<button type="button" class="linkbtn${l.primary ? " primary" : ""}" data-copy="${esc(l.copy)}" title="Click to copy">${inner}</button>`;
@@ -184,7 +201,7 @@
           <div class="wrap">
             <h2>${esc(a.contactTitle || "Get in touch")}</h2>
             ${a.contactText ? `<p class="lead">${esc(a.contactText)}</p>` : ""}
-            <div class="links">${a.links.map(linkBtn).join("")}</div>
+            <div class="badges">${a.links.map(badgeBtn).join("")}</div>
           </div>
         </section>`;
     },
@@ -200,7 +217,7 @@
                   .map(
                     (p) => `
               <article class="card">
-                ${video(p.video, p.title)}
+                ${p.spotify ? spotifyEmbed(p.spotify, p.title) : video(p.video, p.title)}
                 <div class="card-body">
                   <div class="meta">${esc(p.tag || "")}${p.tag && p.year ? " · " : ""}${esc(p.year || "")}</div>
                   <h3>${esc(p.title)}</h3>
@@ -246,6 +263,7 @@
           <ol class="steps">
             ${w.steps.map((st) => `<li><h3>${esc(st.title)}</h3><p>${esc(st.text)}</p></li>`).join("")}
           </ol>
+          ${w.daily ? `<div class="phase daily"><p class="eyebrow">${esc(w.daily.label)}</p><h3>${esc(w.daily.title)}</h3><p>${esc(w.daily.text)}</p></div>` : ""}
           ${w.video ? video(w.video, "My workflow") : ""}
         </div>`;
     },
@@ -275,6 +293,7 @@
   function render() {
     const id = TAB_IDS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "about";
     setMenu(false);
+    document.body.dataset.page = id; // permite estilos distintos por pestaña (fondo difuminado)
     view.innerHTML = sections[id]();
     view.querySelectorAll("h2").forEach((h) => h.insertAdjacentHTML("afterend", '<div class="divider"><i></i></div>'));
     view.classList.remove("fade");

@@ -1,6 +1,6 @@
 /* ==========================================================
    AQUÍ EDITAS TODO EL CONTENIDO DE LA WEB
-   Para añadir un vídeo, pega el enlace de YouTube en "video".
+   Para añadir un vídeo, pega el enlace de YouTube en "video" (o de Spotify en "spotify").
    Vale cualquier formato: youtube.com/watch?v=..., youtu.be/...,
    youtube.com/shorts/..., o una lista (playlist?list=...).
    ========================================================== */
@@ -18,6 +18,7 @@ window.SITE = {
       "Hi there! I'm Alberto, a composer based in Valencia, Spain, and a lifelong gamer.",
       "I've been writing music all my life, and for the last few years I've focused on music for videogames.",
       "My influences come from the fantasy worlds I grew up in: Skyrim, Elden Ring, Golden Sun, Ghost of Tsushima and The Witcher, plus Game of Thrones, The Lord of the Rings...",
+      "Naturally, my music is built on orchestral writing, with touches of fantasy and ethnic instruments, and that is what you will find across my portfolio.",
       "My approach is simple: the music serves the developer's vision. I want to take the player's experience a step further by building on what the game already shows, and giving it a frame that makes the whole experience stick. My job isn't to write memorable music for its own sake. It's to bring to life what the developer hears in their head when they imagine the game."
     ],
     video: "https://youtu.be/GeT0c5qNSCM", // vídeo grande de la portada (sección "Listen")
@@ -27,23 +28,25 @@ window.SITE = {
     facts: [ // cuadro "de un vistazo" junto al texto
       { label: "Based in", value: "Valencia, Spain" },
       { label: "Focus", value: "Music for videogames" },
-      { label: "Palette", value: "Fantasy · Dark fantasy · Orchestral" },
-      { label: "Currently", value: "6 games in development" }
+      { label: "Palette", value: "Fantasy · Dark fantasy · Orchestral · Ethnic Orchestral" }
     ],
     contactTitle: "Get in touch",
     contactText: "Have a game, a campaign or a world that needs music? Tell me about it.",
     links: [
-      { label: "Gmail", type: "mail", icon: "img/gmail", url: "mailto:albertosaezcastillo@gmail.com" },
-      { label: "Discord · alberthor350", type: "chat", icon: "img/discord", url: "https://discord.com/users/431526710006120460" },
-      { label: "YouTube", type: "play", icon: "img/youtube", url: "https://www.youtube.com/@alberthormusicyt" },
-      { label: "Spotify", type: "music", icon: "img/spotify", url: "https://open.spotify.com/artist/3YNlkAYshOwGIeb6OJhXGC" }
+      { label: "Gmail", type: "mail", icon: "img/gmail.png", url: "mailto:albertosaezcastillo@gmail.com" },
+      { label: "Discord · alberthor350", type: "chat", icon: "img/discord.png", url: "https://discord.com/users/431526710006120460" },
+      { label: "YouTube", type: "play", icon: "img/youtube.png", url: "https://www.youtube.com/@alberthormusicyt" },
+      { label: "Spotify", type: "music", icon: "img/spotify.png", url: "https://open.spotify.com/artist/3YNlkAYshOwGIeb6OJhXGC" }
     ]
   },
 
   /* ---------- PORTFOLIO ---------- */
   portfolio: [
-    { title: "Fantasy music reel", tag: "Reel", year: "", description: "", video: "https://youtu.be/GeT0c5qNSCM" },
-    { title: "Dark fantasy music reel", tag: "Reel", year: "", description: "", video: "https://youtu.be/FkpJXVGJLyg" }
+    { title: "Fantasy music reel", tag: "Reel", year: "", description: "Tavern, ambience, combat and main theme: the staples of RPG and fantasy games.", video: "https://youtu.be/GeT0c5qNSCM" },
+    { title: "Dark fantasy music reel", tag: "Reel", year: "", description: "Dark fantasy for Souls-like games: boss music in phases, ambience, cathedral pieces and melancholic themes.", video: "https://youtu.be/FkpJXVGJLyg" },
+    { title: "Winter Reel RPG music", tag: "Reel", year: "", description: "From more melodic themes to tension and ritual pieces, with Nordic and Viking influences.", video: "https://youtu.be/eAbFzek1qzg" },
+    // Para un reproductor de Spotify, usa "spotify" en vez de "video" (vale canción, álbum, playlist o artista):
+    { title: "Alberto Sáez on Spotify", tag: "Spotify", year: "", description: "", spotify: "https://open.spotify.com/artist/3YNlkAYshOwGIeb6OJhXGC" }
   ],
   portfolioEmpty: "Coming soon", // se muestra mientras la lista de arriba esté vacía
 
@@ -68,7 +71,7 @@ window.SITE = {
     items: [
       { category: "Computer", name: "AMD Ryzen 7 3700X · 128 GB RAM · NVIDIA RTX 2060 · SSD + HDD storage", note: "" },
       { category: "DAW", name: "Cubase 15 Pro", note: "" },
-      { category: "Sampler", name: "Kontakt 7", note: "" },
+      { category: "Sampler", name: "Kontakt 7 · Opus · Engine 2", note: "" },
       { category: "MIDI Keyboard", name: "Nektar Impact LX61", note: "" },
       { category: "Expression", name: "Sparrow 4x100mm MIDI controller", note: "" },
       { category: "Audio Interface", name: "Focusrite Scarlett Solo", note: "" },
@@ -112,6 +115,11 @@ window.SITE = {
         text: "I deliver the music in an implementation-ready format, together with implementation instructions whenever they are needed."
       }
     ],
+    daily: {
+      label: "Day to day",
+      title: "Communication and files",
+      text: "Day-to-day communication usually happens over Discord, and we share all files through a shared Google Drive folder."
+    },
     video: "" // opcional: vídeo de proceso
   },
 
@@ -126,8 +134,8 @@ window.SITE = {
         title: "My channel",
         text: "When I'm not composing for others, I keep composing out of passion for my own channel. It's focused on music for D&D sessions and videogames. I do it purely for the love of it, and I like sharing it online with anyone who might enjoy it.",
         links: [
-          { label: "YouTube", type: "play", icon: "img/youtube", url: "https://www.youtube.com/@alberthormusicyt" },
-          { label: "Spotify", type: "music", icon: "img/spotify", url: "https://open.spotify.com/artist/3YNlkAYshOwGIeb6OJhXGC" }
+          { label: "YouTube", type: "play", icon: "img/youtube.png", url: "https://www.youtube.com/@alberthormusicyt" },
+          { label: "Spotify", type: "music", icon: "img/spotify.png", url: "https://open.spotify.com/artist/3YNlkAYshOwGIeb6OJhXGC" }
         ]
       }
     ]
