@@ -163,9 +163,9 @@
             ${a.eyebrow ? `<p class="eyebrow">${esc(a.eyebrow)}</p>` : ""}
             <h1>${esc(S.name)}</h1>
             <p class="lead">${esc(S.tagline)}</p>
-            <div class="cta">
-              ${a.cta ? linkBtn({ ...a.cta, primary: true }) : ""}
-              ${a.video ? `<button type="button" class="linkbtn" data-scroll="reel">${esc(a.listenLabel || "Listen to the reel")}</button>` : ""}
+            <div class="contact">
+              <p class="eyebrow">${esc(a.contactTitle || "Get in touch")}</p>
+              <div class="badges">${a.links.map(badgeBtn).join("")}</div>
             </div>
           </div>
         </section>
@@ -195,15 +195,7 @@
                 </div>
               </section>`
             : ""
-        }
-
-        <section class="band">
-          <div class="wrap">
-            <h2>${esc(a.contactTitle || "Get in touch")}</h2>
-            ${a.contactText ? `<p class="lead">${esc(a.contactText)}</p>` : ""}
-            <div class="badges">${a.links.map(badgeBtn).join("")}</div>
-          </div>
-        </section>`;
+        }`;
     },
 
     portfolio() {

@@ -114,7 +114,9 @@ h3 { font-size: 1.15rem; letter-spacing: .05em; }
 }
 .hero-inner { position: relative; padding-top: 5rem; padding-bottom: 5rem; }
 .hero-inner > * { max-width: 620px; }
-.cta { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 1.8rem; }
+.contact { margin-top: 2rem; }
+.contact .eyebrow { margin-bottom: .4rem; }
+.contact .badges { margin-top: .6rem; }
 
 /* bandas de sección */
 .band { padding: clamp(3rem, 7vw, 5rem) 0; }
@@ -306,7 +308,7 @@ h3 { font-size: 1.15rem; letter-spacing: .05em; }
   .hero-media { position: relative; height: 310px; background-size: cover; background-position: 62% 40%; }
   .hero-media::after { background: linear-gradient(0deg, var(--bg) 0%, rgba(14, 10, 8, .25) 55%, rgba(14, 10, 8, .1) 100%); }
   .hero-inner { margin-top: -90px; padding-top: 0; padding-bottom: 2.6rem; }
-  .cta, .links { display: grid; grid-template-columns: 1fr; gap: .7rem; }
+  .links { display: grid; grid-template-columns: 1fr; gap: .7rem; }
   .linkbtn { width: 100%; padding: .8rem 1rem; font-size: .8rem; }
   .specs > div { grid-template-columns: 1fr; gap: .2rem; }
   .specs .aside p { grid-column: 1; }

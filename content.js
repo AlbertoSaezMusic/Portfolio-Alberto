@@ -24,19 +24,15 @@ window.SITE = {
     video: "https://youtu.be/GeT0c5qNSCM", // vídeo grande de la portada (sección "Listen")
     videoTitle: "Listen",
     listenLabel: "Listen to the reel", // texto del botón secundario de la portada
-    cta: { label: "Email me", type: "mail", url: "mailto:albertosaezcastillo@gmail.com" }, // botón principal
     facts: [ // cuadro "de un vistazo" junto al texto
       { label: "Based in", value: "Valencia, Spain" },
       { label: "Focus", value: "Music for videogames" },
       { label: "Palette", value: "Fantasy · Dark fantasy · Orchestral · Ethnic Orchestral" }
     ],
     contactTitle: "Get in touch",
-    contactText: "Have a game, a campaign or a world that needs music? Tell me about it.",
     links: [
       { label: "Gmail", type: "mail", icon: "img/gmail.png", url: "mailto:albertosaezcastillo@gmail.com" },
-      { label: "Discord · alberthor350", type: "chat", icon: "img/discord.png", url: "https://discord.com/users/431526710006120460" },
-      { label: "YouTube", type: "play", icon: "img/youtube.png", url: "https://www.youtube.com/@alberthormusicyt" },
-      { label: "Spotify", type: "music", icon: "img/spotify.png", url: "https://open.spotify.com/artist/3YNlkAYshOwGIeb6OJhXGC" }
+      { label: "Discord · alberthor350", type: "chat", icon: "img/discord.png", url: "https://discord.com/users/431526710006120460" }
     ]
   },
 
