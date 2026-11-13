@@ -56,18 +56,40 @@
     music: '<path d="M9 18V6l10-2v12"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="16" r="2"/>',
     link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'
   };
-  // l.icon = "img/archivo.svg" usa tu propia imagen; si no, se usa l.type (mail, chat, play, music, link)
+  const svgIcon = (type) =>
+    `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[type] || ICONS.link}</svg>`;
+  // l.icon = "img/gmail" -> busca img/gmail.svg, .png, .webp o .jpg (el primero que exista).
+  // Si no existe ninguno, usa el icono genérico de l.type (mail, chat, play, music, link).
+  const ICON_EXT = [".svg", ".png", ".webp", ".jpg"];
   function linkBtn(l) {
-    const icon = l.icon
-      ? `<img class="ico" src="${esc(l.icon)}" alt="" />`
-      : `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[l.type] || ICONS.link}</svg>`;
+    let icon;
+    if (l.icon) {
+      const hasExt = /\.(svg|png|webp|jpe?g)$/i.test(l.icon);
+      const first = hasExt ? l.icon : l.icon + ICON_EXT[0];
+      icon = `<img class="ico logo" src="${esc(first)}" alt="" ${hasExt ? "" : `data-base="${esc(l.icon)}" data-n="0"`} data-type="${esc(l.type || "link")}" />`;
+    } else {
+      icon = svgIcon(l.type);
+    }
     const inner = `${icon}<span>${esc(l.label)}</span>`;
     if (l.copy && !l.url) {
-      return `<button type="button" class="linkbtn" data-copy="${esc(l.copy)}" title="Click to copy">${inner}</button>`;
+      return `<button type="button" class="linkbtn${l.primary ? " primary" : ""}" data-copy="${esc(l.copy)}" title="Click to copy">${inner}</button>`;
     }
     const ext = /^https?:/.test(l.url) ? ' target="_blank" rel="noopener"' : "";
-    return `<a class="linkbtn" href="${esc(l.url)}"${ext}>${inner}</a>`;
+    return `<a class="linkbtn${l.primary ? " primary" : ""}" href="${esc(l.url)}"${ext}>${inner}</a>`;
   }
+
+  // Si un logo no existe, prueba otra extensión y, al final, pone el icono genérico
+  document.addEventListener("error", (e) => {
+    const im = e.target;
+    if (!im || im.tagName !== "IMG" || !im.classList.contains("logo")) return;
+    const n = (parseInt(im.dataset.n, 10) || 0) + 1;
+    if (im.dataset.base && n < ICON_EXT.length) {
+      im.dataset.n = n;
+      im.src = im.dataset.base + ICON_EXT[n];
+    } else {
+      im.outerHTML = svgIcon(im.dataset.type);
+    }
+  }, true);
 
   function toast(msg) {
     let t = document.getElementById("toast");
@@ -110,31 +132,68 @@
   }
 
   /* ---------- secciones ---------- */
+  const head = (title, lead = "") =>
+    `<header class="page-head"><div class="wrap"><h2>${esc(title)}</h2>${intro(lead)}</div></header>`;
+
   const sections = {
     about() {
       const a = S.about;
+      const facts = a.facts || [];
       return `
-        <section class="about">
-          <div class="about-text">
+        <section class="hero">
+          <div class="hero-media" aria-hidden="true"></div>
+          <div class="hero-inner wrap">
             ${a.eyebrow ? `<p class="eyebrow">${esc(a.eyebrow)}</p>` : ""}
             <h1>${esc(S.name)}</h1>
             <p class="lead">${esc(S.tagline)}</p>
-            <div class="divider"><i></i></div>
-            ${a.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("")}
-            <div class="links">
-              ${a.links.map(linkBtn).join("")}
+            <div class="cta">
+              ${a.cta ? linkBtn({ ...a.cta, primary: true }) : ""}
+              ${a.video ? `<button type="button" class="linkbtn" data-scroll="reel">${esc(a.listenLabel || "Listen to the reel")}</button>` : ""}
             </div>
           </div>
-          ${a.photo ? `<img class="photo" src="${esc(a.photo)}" alt="${esc(S.name)}" />` : ""}
         </section>
-        ${a.video ? `<section>${video(a.video, "Introduction")}</section>` : ""}`;
+
+        <section class="band">
+          <div class="wrap two-col">
+            <div class="about-text">
+              <h2>About me</h2>
+              ${a.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("")}
+            </div>
+            ${
+              facts.length
+                ? `<aside class="glance"><dl>${facts
+                    .map((f) => `<div><dt>${esc(f.label)}</dt><dd>${esc(f.value)}</dd></div>`)
+                    .join("")}</dl></aside>`
+                : ""
+            }
+          </div>
+        </section>
+
+        ${
+          a.video
+            ? `<section class="band alt" id="reel">
+                <div class="wrap">
+                  <h2>${esc(a.videoTitle || "Listen")}</h2>
+                  ${video(a.video, a.videoTitle || "Reel")}
+                </div>
+              </section>`
+            : ""
+        }
+
+        <section class="band">
+          <div class="wrap">
+            <h2>${esc(a.contactTitle || "Get in touch")}</h2>
+            ${a.contactText ? `<p class="lead">${esc(a.contactText)}</p>` : ""}
+            <div class="links">${a.links.map(linkBtn).join("")}</div>
+          </div>
+        </section>`;
     },
 
     portfolio() {
       const items = S.portfolio || [];
       return `
-        <section>
-          <h2>Portfolio</h2>
+        ${head("Portfolio")}
+        <div class="page-body wrap">
           ${
             items.length
               ? `<div class="grid">${items
@@ -145,23 +204,22 @@
                 <div class="card-body">
                   <div class="meta">${esc(p.tag || "")}${p.tag && p.year ? " · " : ""}${esc(p.year || "")}</div>
                   <h3>${esc(p.title)}</h3>
-                  <p>${esc(p.description)}</p>
+                  ${p.description ? `<p>${esc(p.description)}</p>` : ""}
                 </div>
               </article>`
                   )
                   .join("")}</div>`
               : `<p class="lead soon">${esc(S.portfolioEmpty || "Coming soon")}</p>`
           }
-        </section>
-        ${gamesList(S.games)}`;
+          ${gamesList(S.games)}
+        </div>`;
     },
 
     setup() {
       const s = S.setup;
       return `
-        <section>
-          <h2>My set up</h2>
-          ${intro(s.intro)}
+        ${head("My set up", s.intro)}
+        <div class="page-body wrap">
           <dl class="specs">
             ${s.items
               .map((i) => i.category
@@ -170,15 +228,14 @@
               .join("")}
           </dl>
           ${s.video ? video(s.video, "My set up") : ""}
-        </section>`;
+        </div>`;
     },
 
     workflow() {
       const w = S.workflow;
       return `
-        <section>
-          <h2>My workflow</h2>
-          ${intro(w.intro)}
+        ${head("My workflow", w.intro)}
+        <div class="page-body wrap">
           <div class="phase">
             <p class="eyebrow">${esc(w.before.label)}</p>
             <h3>${esc(w.before.title)}</h3>
@@ -190,14 +247,14 @@
             ${w.steps.map((st) => `<li><h3>${esc(st.title)}</h3><p>${esc(st.text)}</p></li>`).join("")}
           </ol>
           ${w.video ? video(w.video, "My workflow") : ""}
-        </section>`;
+        </div>`;
     },
 
     others() {
       const o = S.others;
       return `
-        <section>
-          <h2>Others</h2>
+        ${head("Others")}
+        <div class="page-body wrap">
           <div class="blocks">
             ${o.blocks
               .map(
@@ -210,7 +267,7 @@
               )
               .join("")}
           </div>
-        </section>`;
+        </div>`;
     }
   };
 
@@ -247,6 +304,12 @@
 
   // Cargar el reproductor al pulsar la miniatura
   view.addEventListener("click", (e) => {
+    const sc = e.target.closest("[data-scroll]");
+    if (sc) {
+      const t = document.getElementById(sc.dataset.scroll);
+      if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
     const cb = e.target.closest("[data-copy]");
     if (cb) { copyText(cb.dataset.copy); return; }
     const box = e.target.closest(".video");

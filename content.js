@@ -20,12 +20,23 @@ window.SITE = {
       "My influences come from the fantasy worlds I grew up in: Skyrim, Elden Ring, Golden Sun, Ghost of Tsushima and The Witcher, plus Game of Thrones, The Lord of the Rings...",
       "My approach is simple: the music serves the developer's vision. I want to take the player's experience a step further by building on what the game already shows, and giving it a frame that makes the whole experience stick. My job isn't to write memorable music for its own sake. It's to bring to life what the developer hears in their head when they imagine the game."
     ],
-    video: "", // opcional: un vídeo de presentación
+    video: "https://youtu.be/GeT0c5qNSCM", // vídeo grande de la portada (sección "Listen")
+    videoTitle: "Listen",
+    listenLabel: "Listen to the reel", // texto del botón secundario de la portada
+    cta: { label: "Email me", type: "mail", url: "mailto:albertosaezcastillo@gmail.com" }, // botón principal
+    facts: [ // cuadro "de un vistazo" junto al texto
+      { label: "Based in", value: "Valencia, Spain" },
+      { label: "Focus", value: "Music for videogames" },
+      { label: "Palette", value: "Fantasy · Dark fantasy · Orchestral" },
+      { label: "Currently", value: "6 games in development" }
+    ],
+    contactTitle: "Get in touch",
+    contactText: "Have a game, a campaign or a world that needs music? Tell me about it.",
     links: [
-      { label: "Gmail", type: "mail", url: "mailto:albertosaezcastillo@gmail.com" },
-      { label: "Discord · alberthor350", type: "chat", url: "https://discord.com/users/431526710006120460" },
-      { label: "YouTube", type: "play", url: "https://www.youtube.com/@alberthormusicyt" },
-      { label: "Spotify", type: "music", url: "https://open.spotify.com/artist/3YNlkAYshOwGIeb6OJhXGC" }
+      { label: "Gmail", type: "mail", icon: "img/gmail", url: "mailto:albertosaezcastillo@gmail.com" },
+      { label: "Discord · alberthor350", type: "chat", icon: "img/discord", url: "https://discord.com/users/431526710006120460" },
+      { label: "YouTube", type: "play", icon: "img/youtube", url: "https://www.youtube.com/@alberthormusicyt" },
+      { label: "Spotify", type: "music", icon: "img/spotify", url: "https://open.spotify.com/artist/3YNlkAYshOwGIeb6OJhXGC" }
     ]
   },
 
@@ -115,8 +126,8 @@ window.SITE = {
         title: "My channel",
         text: "When I'm not composing for others, I keep composing out of passion for my own channel. It's focused on music for D&D sessions and videogames. I do it purely for the love of it, and I like sharing it online with anyone who might enjoy it.",
         links: [
-          { label: "YouTube", type: "play", url: "https://www.youtube.com/@alberthormusicyt" },
-          { label: "Spotify", type: "music", url: "https://open.spotify.com/artist/3YNlkAYshOwGIeb6OJhXGC" }
+          { label: "YouTube", type: "play", icon: "img/youtube", url: "https://www.youtube.com/@alberthormusicyt" },
+          { label: "Spotify", type: "music", icon: "img/spotify", url: "https://open.spotify.com/artist/3YNlkAYshOwGIeb6OJhXGC" }
         ]
       }
     ]
