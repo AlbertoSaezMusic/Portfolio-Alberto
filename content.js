@@ -18,10 +18,11 @@ window.SITE = {
       "Hi there! I'm Alberto, a composer based in Valencia, Spain, and a lifelong gamer.",
       "I've been writing music all my life, and for the last few years I've focused on music for videogames.",
       "My influences come from the fantasy worlds I grew up in: Skyrim, Elden Ring, Golden Sun, Ghost of Tsushima and The Witcher, plus Game of Thrones, The Lord of the Rings...",
+      "I also love reading fantasy: Brandon Sanderson, the Second Apocalypse saga, The Witcher, among many others.",
       "Naturally, my music is built on orchestral writing, with touches of fantasy and ethnic instruments, and that is what you will find across my portfolio.",
       "My approach is simple: the music serves the developer's vision. I want to take the player's experience a step further by building on what the game already shows, and giving it a frame that makes the whole experience stick. My job isn't to write memorable music for its own sake. It's to bring to life what the developer hears in their head when they imagine the game."
     ],
-    video: "https://youtu.be/GeT0c5qNSCM", // vídeo grande de la portada (sección "Listen")
+    video: "", // vídeo grande de la portada (sección "Listen"): vacío = no se muestra. Para activarlo pega un enlace de YouTube
     videoTitle: "Listen",
     listenLabel: "Listen to the reel", // texto del botón secundario de la portada
     facts: [ // cuadro "de un vistazo" junto al texto
@@ -41,7 +42,7 @@ window.SITE = {
     { title: "Fantasy music reel", tag: "Reel", year: "", description: "Tavern, ambience, combat and main theme: the staples of RPG and fantasy games.", video: "https://youtu.be/GeT0c5qNSCM" },
     { title: "Dark fantasy music reel", tag: "Reel", year: "", description: "Dark fantasy for Souls-like games: boss music in phases, ambience, cathedral pieces and melancholic themes.", video: "https://youtu.be/FkpJXVGJLyg" },
     { title: "Winter Reel RPG music", tag: "Reel", year: "", description: "From more melodic themes to tension and ritual pieces, with Nordic and Viking influences.", video: "https://youtu.be/eAbFzek1qzg" },
-    { title: "Ethnic Folk Orchestral Reel", tag: "Reel", year: "", description: "Ethnic and folk instruments blended with orchestral writing.", video: "https://youtu.be/6d-F4CULG8w" },
+    { title: "Ethnic Folk Orchestral Reel", tag: "Reel", year: "", description: "A variety of styles within orchestral: Japanese, ancient Egyptian, pirates, western...", video: "https://youtu.be/6d-F4CULG8w" },
     // Para un reproductor de Spotify, usa "spotify" en vez de "video" (vale canción, álbum, playlist o artista).
     // Ejemplo, quita las // para activarlo:
     // { title: "Alberto Sáez on Spotify", tag: "Spotify", year: "", description: "", spotify: "https://open.spotify.com/artist/3YNlkAYshOwGIeb6OJhXGC" }
