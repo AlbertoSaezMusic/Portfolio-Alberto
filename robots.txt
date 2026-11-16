@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+Disallow: /thanks/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://albertosaezmusic.netlify.app/sitemap.xml
