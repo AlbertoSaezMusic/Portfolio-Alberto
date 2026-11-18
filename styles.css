@@ -211,7 +211,9 @@ h3 { font-size: 1.15rem; letter-spacing: .05em; }
 .page-body { padding-top: clamp(2rem, 5vw, 3.2rem); padding-bottom: clamp(3rem, 7vw, 5rem); }
 
 /* tarjetas */
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 2rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 1.5rem; align-items: stretch; }
+.grid .card { display: flex; flex-direction: column; }
+.grid .card-body { flex: 1; }
 .card {
   background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
   transition: transform .25s, border-color .25s, box-shadow .25s;
