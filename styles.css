@@ -39,13 +39,14 @@ body::before {
   filter: blur(4px) saturate(.9);
   transition: opacity .4s;
 }
-body[data-page="portfolio"]::before, body[data-page="others"]::before { opacity: 1; }
-body[data-page="portfolio"]::after, body[data-page="others"]::after {
+body[data-page="portfolio"]::before, body[data-page="others"]::before, body[data-page="workflow"]::before { opacity: 1; }
+body[data-page="workflow"]::before { background: url("setup-bg.jpg") center 38% / cover no-repeat; }
+body[data-page="portfolio"]::after, body[data-page="others"]::after, body[data-page="workflow"]::after {
   background:
     linear-gradient(90deg, rgba(14, 10, 8, .84) 0%, rgba(14, 10, 8, .72) 60%, rgba(14, 10, 8, .6) 100%),
     var(--noise);
 }
-body[data-page="portfolio"] main, body[data-page="others"] main { text-shadow: 0 1px 8px rgba(0, 0, 0, .55); }
+body[data-page="portfolio"] main, body[data-page="others"] main, body[data-page="workflow"] main { text-shadow: 0 1px 8px rgba(0, 0, 0, .55); }
 .wrap { width: min(1120px, 100%); margin: 0 auto; padding-left: clamp(1.1rem, 4vw, 3rem); padding-right: clamp(1.1rem, 4vw, 3rem); }
 
 /* cabecera + pestañas */
@@ -308,7 +309,8 @@ h3 { font-size: 1.15rem; letter-spacing: .05em; }
 @media (max-width: 720px) {
   body { font-size: 1.12rem; line-height: 1.55; }
   body::before { background-position: 72% center; }
-  body[data-page="portfolio"]::after, body[data-page="others"]::after {
+  body[data-page="workflow"]::before { background-position: 40% 35%; }
+  body[data-page="portfolio"]::after, body[data-page="others"]::after, body[data-page="workflow"]::after {
     background: linear-gradient(rgba(14, 10, 8, .62), rgba(14, 10, 8, .74)), var(--noise);
   }
   .brand { font-size: 1rem; }
@@ -363,3 +365,13 @@ h3 { font-size: 1.15rem; letter-spacing: .05em; }
 .msg-page .linkbtn { margin-top: 1.6rem; }
 .skip { position: absolute; left: -9999px; top: 0; z-index: 100; background: var(--gold); color: #120d0a; padding: .6rem 1rem; font: 600 .9rem var(--display); }
 .skip:focus { left: .5rem; top: .5rem; }
+
+/* reels: géneros y ambientes donde funciona cada uno */
+.card .video .play { place-items: end start; padding: 0 0 .9rem 1rem; background: linear-gradient(transparent 55%, rgba(18, 8, 4, .75)); }
+.card .video .play span { width: 46px; height: 46px; box-shadow: 0 0 0 3px rgba(14, 10, 8, .55), 0 0 0 4px var(--accent); }
+.card .video .play span::after { border-left-width: 13px; border-top-width: 8px; border-bottom-width: 8px; margin-left: 4px; }
+.tags { list-style: none; margin: .9rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.tags li { font: 600 .78rem var(--display); letter-spacing: .12em; text-transform: uppercase; color: #120d0a; background: var(--accent); border-radius: 3px; padding: .25rem .55rem; }
+.scenes-label { margin: 1.1rem 0 .5rem !important; font: 600 .78rem var(--display); letter-spacing: .18em; text-transform: uppercase; color: var(--gold) !important; }
+.scenes { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.scenes li { font: 600 1rem var(--body); color: var(--text); border: 1px solid var(--line-strong); border-radius: 999px; padding: .2rem .8rem; }
