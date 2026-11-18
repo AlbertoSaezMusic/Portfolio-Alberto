@@ -39,7 +39,7 @@ body::before {
   filter: blur(4px) saturate(.9);
   transition: opacity .4s;
 }
-body[data-page="portfolio"]::before, body[data-page="others"]::before, body[data-page="workflow"]::before { opacity: 1; }
+body[data-page="portfolio"]::before, body[data-page="workflow"]::before { opacity: 1; }
 body[data-page="workflow"]::before { background: url("setup-bg.jpg") center 38% / cover no-repeat; }
 body[data-page="portfolio"]::after, body[data-page="others"]::after, body[data-page="workflow"]::after {
   background:
@@ -384,3 +384,18 @@ h3 { font-size: 1.15rem; letter-spacing: .05em; }
 .ab-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
 .ab-list li { position: relative; padding-left: 1.3rem; }
 .ab-list li::before { content: ""; position: absolute; left: .1rem; top: .62em; width: 7px; height: 7px; background: var(--accent); transform: rotate(45deg); }
+
+/* Others: dos ilustraciones difuminadas que se funden una con otra */
+.bg-slides { position: fixed; inset: -24px; z-index: -2; pointer-events: none; filter: blur(4px) saturate(.9); }
+.bg-slides i { position: absolute; inset: 0; background: center / cover no-repeat; opacity: 0; animation: slidefade 18s ease-in-out infinite both; }
+.bg-slides i:nth-child(1) { background-image: url("bg-north.jpg"); }
+.bg-slides i:nth-child(2) { background-image: url("bg-forest.jpg"); animation-delay: 9s; }
+@keyframes slidefade { 0% { opacity: 0; } 10% { opacity: 1; } 50% { opacity: 1; } 60% { opacity: 0; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .bg-slides i:first-child { opacity: 1; } }
+
+/* Others: imágenes más visibles (menos oscurecido y menos desenfoque) */
+body[data-page="others"]::after { background: linear-gradient(rgba(14, 10, 8, .38), rgba(14, 10, 8, .52)), var(--noise); }
+body[data-page="others"] .bg-slides { filter: blur(3px) saturate(1); }
+body[data-page="others"] .page-head { background: rgba(14, 10, 8, .45); }
+body[data-page="others"] .panel { background: rgba(27, 20, 16, .9); }
+@media (max-width: 720px) { body[data-page="others"]::after { background: linear-gradient(rgba(14, 10, 8, .38), rgba(14, 10, 8, .52)), var(--noise); } }
