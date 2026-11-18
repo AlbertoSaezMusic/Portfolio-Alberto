@@ -375,3 +375,10 @@ h3 { font-size: 1.15rem; letter-spacing: .05em; }
 .scenes-label { margin: 1.1rem 0 .5rem !important; font: 600 .78rem var(--display); letter-spacing: .18em; text-transform: uppercase; color: var(--gold) !important; }
 .scenes { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
 .scenes li { font: 600 1rem var(--body); color: var(--text); border: 1px solid var(--line-strong); border-radius: 999px; padding: .2rem .8rem; }
+
+/* About me: bloques con viñetas */
+.about-intro { font-size: 1.3rem; color: var(--text); }
+.ab-label { margin: 1.6rem 0 .5rem; font: 600 .85rem var(--display); letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.ab-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+.ab-list li { position: relative; padding-left: 1.3rem; }
+.ab-list li::before { content: ""; position: absolute; left: .1rem; top: .62em; width: 7px; height: 7px; background: var(--accent); transform: rotate(45deg); }
